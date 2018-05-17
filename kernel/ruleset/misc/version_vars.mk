@@ -69,22 +69,22 @@ ifeq ($(DEB_HOST_ARCH_OS), linux)
   # .config, and the informational message messes up the variable.
   TEST         :=$(call doit,$(MAKE) $(CROSS_ARG) $(K_ARG) --no-print-directory \
                    -sf $(DEBDIR)/ruleset/kernel_version.mk debian_VERSION       \
-                    2>/dev/null )
+                    </dev/null 2>/dev/null )
   VERSION      :=$(call doit,$(MAKE) $(CROSS_ARG) $(K_ARG) --no-print-directory \
                    -sf $(DEBDIR)/ruleset/kernel_version.mk debian_VERSION       \
-                    2>/dev/null | tail -n 1)
+                    </dev/null 2>/dev/null | tail -n 1)
   PATCHLEVEL   :=$(call doit,$(MAKE) $(CROSS_ARG) $(K_ARG) --no-print-directory \
                    -sf $(DEBDIR)/ruleset/kernel_version.mk debian_PATCHLEVEL    \
-                    2>/dev/null | tail -n 1)
+                    </dev/null 2>/dev/null | tail -n 1)
   SUBLEVEL     :=$(call doit,$(MAKE) $(CROSS_ARG) $(K_ARG) --no-print-directory \
                    -sf $(DEBDIR)/ruleset/kernel_version.mk debian_SUBLEVEL      \
-                    2>/dev/null | tail -n 1)
+                    </dev/null 2>/dev/null | tail -n 1)
   EXTRA_VERSION:=$(call doit,$(MAKE) $(CROSS_ARG) $(K_ARG) --no-print-directory \
                    -sf $(DEBDIR)/ruleset/kernel_version.mk debian_EXTRAVERSION  \
-                    2>/dev/null | tail -n 1)
+                    </dev/null 2>/dev/null | tail -n 1)
   LOCALVERSION :=$(call doit,$(MAKE) $(CROSS_ARG) $(K_ARG) --no-print-directory \
                    -sf $(DEBDIR)/ruleset/kernel_version.mk debian_LOCALVERSION  \
-                    2>/dev/null | tail -n 1)
+                    </dev/null 2>/dev/null | tail -n 1)
   # If the variable TEST did get a mesage about .config beng written, pass it on.
   ifneq ($(strip $(TEST)),$(strip $(VERSION)))
     $(warn $(TEST))

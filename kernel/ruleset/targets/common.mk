@@ -177,7 +177,7 @@ endif
 	$(eval $(which_debdir))
 ifeq ($(DEB_HOST_ARCH_OS), linux)
 	@$(MAKE) --no-print-directory -sf $(DEBDIR)/ruleset/kernel_version.mk  \
-	  ARCH=$(KERNEL_ARCH) $(CROSS_ARG) debian_conf_var >> debian/stamp/conf/mak
+	  ARCH=$(KERNEL_ARCH) $(CROSS_ARG) debian_conf_var </dev/null >> debian/stamp/conf/mak
 endif
 	@echo "do_parallel	= $(do_parallel)"   >> debian/stamp/conf/mak
 	@echo "fast_dep		= $(fast_dep)"	    >> debian/stamp/conf/mak
@@ -185,8 +185,8 @@ endif
 # Use the kernel's Makefile to calculate the TOPDIR.
 # TOPDIR is obsolete in 2.6 kernels, so the kernel_version.mk
 # will get us the right answer
-	@echo $(shell $(MAKE) --no-print-directory -sf $(DEBDIR)/ruleset/kernel_version.mk debian_TOPDIR 2>/dev/null | tail -n 1) >/dev/null
-	@sed -e 's%$(shell $(MAKE) --no-print-directory -sf $(DEBDIR)/ruleset/kernel_version.mk debian_TOPDIR 2>/dev/null | tail -n 1)%$$(TOPDIR)%g' debian/stamp/conf/mak     > debian/stamp/conf/vars
+	@echo $(shell $(MAKE) --no-print-directory -sf $(DEBDIR)/ruleset/kernel_version.mk debian_TOPDIR </dev/null 2>/dev/null | tail -n 1) >/dev/null
+	@sed -e 's%$(shell $(MAKE) --no-print-directory -sf $(DEBDIR)/ruleset/kernel_version.mk debian_TOPDIR </dev/null 2>/dev/null | tail -n 1)%$$(TOPDIR)%g' debian/stamp/conf/mak     > debian/stamp/conf/vars
 	@rm -f debian/stamp/conf/mak
 	@touch debian/stamp/conf/vars
 
