@@ -1,3 +1,13 @@
+kernel-package (13.018+nmu1evedev1) bionic; urgency=medium
+
+  [ Kevin Locke ]
+  * Redirect stdin from /dev/null for kernel_version.mk (Closes: 890817)
+
+  [ David Lechner ]
+  * ev3dev takeover
+
+ -- David Lechner <david@lechnology.com>  Sat, 23 Feb 2019 20:02:59 -0600
+
 kernel-package (13.018+nmu1) unstable; urgency=medium
 
   [ Tobias Frost ]
@@ -1152,7 +1162,8 @@ kernel-package (12.001) experimental; urgency=low
     with internal files for initramfs tools. This way, the user may add an
     postrm.d script that uses the accepted interface to clean up.
                                                             (Closes: #511004).
-    Bug fix: "make-kpkg should use update-initramfs when ", thanks to
+    Bug fix: "make-kpkg should use update-initramfs when 
+", thanks to
     Arthur Marsh. Again, since the kernel does not call any initramfs
     creators, be design, this bug is obsolete.
                                                              (Closes: #518107).
