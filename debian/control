@@ -1,11 +1,11 @@
 Source: kernel-package
-VCS-Git: https://anonscm.debian.org/git/users/srivasta/debian/kernel-package.git
-VCS-Browser: https://anonscm.debian.org/gitweb/?p=users/srivasta/debian/kernel-package.git;a=summary
+VCS-Git: https://github.com/ev3dev/kernel-package.git
+VCS-Browser: https://github.com/ev3dev/kernel-package
 Priority: optional
 Section: kernel
 Build-Depends-Indep: po4a (>= 0.31), debhelper (>= 9)
-Maintainer: Manoj Srivastava <srivasta@debian.org>
-Standards-Version: 3.9.6
+Maintainer: David Lechner <david@lechnology.com>
+Standards-Version: 4.1.4
 
 Package: kernel-package
 Architecture: all
