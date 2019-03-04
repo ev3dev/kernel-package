@@ -1,3 +1,9 @@
+kernel-package (13.018+nmu1evedev2) bionic; urgency=medium
+
+  * Set may-sync-config := 0 in kernel_version.mk
+
+ -- David Lechner <david@lechnology.com>  Sun, 03 Mar 2019 19:09:09 -0600
+
 kernel-package (13.018+nmu1evedev1) bionic; urgency=medium
 
   [ Kevin Locke ]
