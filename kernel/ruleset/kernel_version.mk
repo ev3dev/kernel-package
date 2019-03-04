@@ -39,8 +39,10 @@ MFLAGS:=$(filter-out -w,$(FLAGS))
 
 # Include the kernel makefile
 override dot-config := 1
+override may-sync-config := 0
 include Makefile
 dot-config := 1
+may-sync-config := 0
 
 .PHONY: debian_VERSION debian_PATCHLEVEL debian_SUBLEVEL
 .PHONY: debian_EXTRAVERSION debian_LOCALVERSION debian_TOPDIR
